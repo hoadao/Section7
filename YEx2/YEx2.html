@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xay dung lop hinh tron</title>
+</head>
+<body>
+    <script>
+        var HinhTron=function (radius) {
+            this.radius = radius;
+            this.getRadius = function () {
+                return this.radius;
+            }
+            this.getArea = function () {
+                return (this.radius * this.radius * 3.14);
+            }
+        }
+            var hinh=new HinhTron(12);
+            document.write("Ban kinh: "+hinh.getRadius()+"</br>");
+            document.write("Dien tich: "+hinh.getArea());
+    </script>
+</body>
+</html>
