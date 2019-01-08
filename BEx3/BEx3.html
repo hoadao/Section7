@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tempurature</title>
+</head>
+<body>
+    <script>
+        class Tempurature{
+            constructor(c){
+                this.c=c;
+            }
+            getC(){
+                return this.c;
+            }
+            setC(){
+                this.c=c;
+            }
+            chuyenSangDoF(){
+                return (this.c*1.8+32);
+            }
+            chuyenSangDoK(){
+                return (this.c+273);
+            }
+        }
+        var nhietDo=new Tempurature(25);
+        document.write("Chuyen sang do F: "+nhietDo.chuyenSangDoF()+"</br>");
+        document.write("Chuyen sang do K: "+nhietDo.chuyenSangDoK());
+    </script>
+</body>
+</html>

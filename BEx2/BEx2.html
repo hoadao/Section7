@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hinh chu nhat</title>
+</head>
+<body>
+    <canvas id="myCanvas"/>
+    <script>
+        class HinhChuNhat{
+            constructor(height,width){
+                this.height=height;
+                this.width=width;
+            }
+            tinhDienTich(){
+                return (this.height*this.width);
+            }
+            tinhChuVi(){
+                return (this.width+this.height)*2;
+            }
+            hienThi(){
+                var canvas = document.getElementById('myCanvas');
+                var ctx = canvas.getContext('2d');
+
+                // Draw shapes
+                ctx.fillRect(100,100,this.height,this.width);
+            }
+        }
+        var hinh1=new HinhChuNhat(200,100);
+        hinh1.hienThi();
+        console.log("Dien tich hinh chu nhat: "+hinh1.tinhDienTich()+"</br>");
+        console.log("Chu vi hinh chu nhat: "+hinh1.tinhChuVi());
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dien thoai di dong</title>
+</head>
+<body>
+    <script>
+        class Mobile{
+            constructor(pin,mess,messRe,messSe,status){
+                this.pin=pin;
+                this.mess=mess;
+                this.messRe=new Array();
+                this.messSe=new Array();
+                this.status=status;
+            }
+            checkStatus(){
+                return this.status;
+            }
+            turnOn(){
+                if(this.status=="Off"){
+                    this.status="On";
+                }
+                else{
+                    alert("Turn On already!");
+                }
+            }
+            turnOff(){
+                if(this.status=="On"){
+                    this.status="Off";
+                }
+                else{
+                    alert("Turn Off already!");
+                }
+            }
+            charge(){
+                if(this.pin<100){
+                    this.pin++;
+                }
+                else if(this.pin==100){
+                    alert("Full!");
+                }
+            }
+            writeMess(ms){
+                this.mess=ms;
+            }
+            sendMess(mobileA){
+                if(this.pin>0) {
+                    this.messSe.push(this.mess);
+                    mobileA.messRe.push(this.mess);
+                    this.pin--;
+                    mobileA.pin--;
+                }
+            }
+            receiveMess(mobileA,message){
+                if(this.pin>0) {
+                    this.messRe.push(message);
+                    mobileA.messSe.push(message);
+                    this.pin--;
+                    mobileA.pin--;
+                }
+            }
+            showMessRe(){
+                if(this.pin>0) {
+                    document.write("Received messages: "+"</br>");
+                    for (var i = 0; i < this.messRe.length; i++) {
+                        document.write("Number " + i + " : " + this.messRe[i] + "</br>");
+                    }
+                    this.pin--;
+                }
+            }
+            showMessSe() {
+                if (this.pin > 0) {
+                    document.write("Sended messages: "+"</br>");
+                    for (var i = 0; i < this.messSe.length; i++) {
+                        document.write("Number " + i + " : " + this.messSe[i] + "</br>");
+                    }
+                    this.pin--;
+                }
+            }
+
+        }
+        var nokia=new Mobile(15,"","","","On");
+        var iphone=new Mobile(10,"","","","Off");
+        iphone.turnOn();
+        nokia.writeMess("Gui cai gi do cho Iphone.");
+        nokia.sendMess(iphone);
+        nokia.writeMess("Toi gui them mot cai gi gi do cho Iphone");
+        nokia.sendMess(iphone);
+        document.write("Iphone's screen: "+"</br>");
+        iphone.showMessRe();
+        document.write("Nokia's Screen: "+"</br>");
+        nokia.showMessSe();
+    </script>
+</body>
+</html>
